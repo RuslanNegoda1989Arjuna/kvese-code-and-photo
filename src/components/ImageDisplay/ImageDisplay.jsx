@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 
 const ImageDisplay = () => {
-  const [images] = useState({
-    карась: '/images/karas.jpg',
-    мойва: '/images/moyva.jpg',
-    Дуб: '/images/dub.jpg',
-    міст: '/images/mist.jpg',
-    фонтан: '/images/fontan.jpg',
-  });
+  const imageKeywords = {
+    keyword1: 'карась',
+    keyword2: 'кобра',
+    keyword3: 'Дуб',
+    keyword4: 'міст',
+    keyword5: 'фонтан',
+  };
+
+  const imageSources = {
+    keyword1: 'https://cdn.pixabay.com/photo/2019/10/02/20/18/koi-4521885_1280.jpg',
+    keyword2: 'https://cdn.pixabay.com/photo/2014/07/30/19/28/king-cobra-405623_1280.jpg',
+    keyword3: 'https://cdn.pixabay.com/photo/2017/01/29/17/36/oak-tree-2018822_1280.jpg',
+    keyword4: 'https://cdn.pixabay.com/photo/2016/11/29/09/49/blonde-1868815_1280.jpg',
+    keyword5: 'https://cdn.pixabay.com/photo/2023/10/16/10/57/fountain-8318963_1280.jpg',
+  };
 
   const [inputValues, setInputValues] = useState({
     input1: '',
@@ -22,48 +30,26 @@ const ImageDisplay = () => {
     setInputValues({ ...inputValues, [inputNumber]: value });
   };
 
+  const shouldShowImage = (inputNumber, keyword) => {
+    const inputValue = inputValues[inputNumber];
+    return inputValue === imageKeywords[keyword];
+  };
+
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          value={inputValues.input1}
-          onChange={(e) => handleInputChange(e, 'input1')}
-        />
-        {inputValues.input1 && <img src={process.env.PUBLIC_URL + images[inputValues.input1]} alt="1" />}
-      </div>
-      <div>
-        <input
-          type="text"
-          value={inputValues.input2}
-          onChange={(e) => handleInputChange(e, 'input2')}
-        />
-        {inputValues.input2 && <img src={process.env.PUBLIC_URL + images[inputValues.input2]} alt="2" />}
-      </div>
-      <div>
-        <input
-          type="text"
-          value={inputValues.input3}
-          onChange={(e) => handleInputChange(e, 'input3')}
-        />
-        {inputValues.input3 && <img src={process.env.PUBLIC_URL + images[inputValues.input3]} alt="3" />}
-      </div>
-      <div>
-        <input
-          type="text"
-          value={inputValues.input4}
-          onChange={(e) => handleInputChange(e, 'input4')}
-        />
-        {inputValues.input4 && <img src={process.env.PUBLIC_URL + images[inputValues.input4]} alt="4" />}
-      </div>
-      <div>
-        <input
-          type="text"
-          value={inputValues.input5}
-          onChange={(e) => handleInputChange(e, 'input5')}
-        />
-        {inputValues.input5 && <img src={process.env.PUBLIC_URL + images[inputValues.input5]} alt="5" />}
-      </div>
+      {[1, 2, 3, 4, 5].map((number) => (
+        <div key={number}>
+          <input
+            type="text"
+            value={inputValues[`input${number}`]}
+            onChange={(e) => handleInputChange(e, `input${number}`)}
+          />
+          <br />
+          {shouldShowImage(`input${number}`, `keyword${number}`) && (
+            <img src={imageSources[`keyword${number}`]} alt={number} style={{ maxWidth: '300px' }} />
+          )}
+        </div>
+      ))}
     </div>
   );
 };
