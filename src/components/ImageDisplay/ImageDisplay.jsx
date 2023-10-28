@@ -36,23 +36,26 @@ const ImageDisplay = () => {
     return inputValue === imageKeywords[keyword];
   };
 
-   return (
+ return (
     <div className={styles.container}>
       {[1, 2, 3, 4, 5].map((number) => (
         <div className={styles.inputWrapper} key={number}>
-          {shouldShowImage(`input${number}`, `keyword${number}`) && (
-            <img className={styles.image} src={imageSources[`keyword${number}`]} alt={number} />
-          )}
           <input
             className={styles.imageInput}
             type="text"
             value={inputValues[`input${number}`]}
             onChange={(e) => handleInputChange(e, `input${number}`)}
           />
+          <div className={styles.imageContainer}>
+            {shouldShowImage(`input${number}`, `keyword${number}`) && (
+              <img className={styles.image} src={imageSources[`keyword${number}`]} alt={number} />
+            )}
+          </div>
         </div>
       ))}
     </div>
   );
 };
+
 
 export default ImageDisplay;
