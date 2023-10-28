@@ -1,0 +1,30 @@
+/* ImageDisplay.module.scss */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.inputWrapper {
+    position: relative;
+    margin-bottom: 50px;
+    height: auto;
+    /* Змінено на auto */
+    min-height: 200px;
+    /* Додано мінімальну висоту */
+}
+
+.imageInput {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.image {
+    max-width: 320px;
+    height: auto;
+    position: relative;
+}

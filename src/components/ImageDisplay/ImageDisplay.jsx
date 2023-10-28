@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './ImageDisplay.module.scss';
 
 const ImageDisplay = () => {
   const imageKeywords = {
@@ -35,19 +36,19 @@ const ImageDisplay = () => {
     return inputValue === imageKeywords[keyword];
   };
 
-  return (
-    <div>
+   return (
+    <div className={styles.container}>
       {[1, 2, 3, 4, 5].map((number) => (
-        <div key={number}>
+        <div className={styles.inputWrapper} key={number}>
+          {shouldShowImage(`input${number}`, `keyword${number}`) && (
+            <img className={styles.image} src={imageSources[`keyword${number}`]} alt={number} />
+          )}
           <input
+            className={styles.imageInput}
             type="text"
             value={inputValues[`input${number}`]}
             onChange={(e) => handleInputChange(e, `input${number}`)}
           />
-          <br />
-          {shouldShowImage(`input${number}`, `keyword${number}`) && (
-            <img src={imageSources[`keyword${number}`]} alt={number} style={{ maxWidth: '300px' }} />
-          )}
         </div>
       ))}
     </div>
