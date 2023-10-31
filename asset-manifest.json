@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/kvese-code-and-photo/static/css/main.ce9de99a.css",
-    "main.js": "/kvese-code-and-photo/static/js/main.ada64a3c.js",
+    "main.js": "/kvese-code-and-photo/static/js/main.d7cb47ef.js",
     "index.html": "/kvese-code-and-photo/index.html",
     "main.ce9de99a.css.map": "/kvese-code-and-photo/static/css/main.ce9de99a.css.map",
-    "main.ada64a3c.js.map": "/kvese-code-and-photo/static/js/main.ada64a3c.js.map"
+    "main.d7cb47ef.js.map": "/kvese-code-and-photo/static/js/main.d7cb47ef.js.map"
   },
   "entrypoints": [
     "static/css/main.ce9de99a.css",
-    "static/js/main.ada64a3c.js"
+    "static/js/main.d7cb47ef.js"
   ]
 }
