@@ -3,12 +3,12 @@ import styles from './ImageDisplay.module.scss';
 
 const ImageDisplay = () => {
   const imageKeywords = {
-    keyword1: 'джерело',
-    keyword2: 'змія',
-    keyword3: 'фонтан',
-    keyword4: 'потяг',
-    keyword5: 'спорт',
-    keyword6: 'замок',
+    keyword1: 'Джерело',
+    keyword2: 'Змія',
+    keyword3: 'Фонтан',
+    keyword4: 'Потяг',
+    keyword5: 'Спорт',
+    keyword6: 'Замок',
   };
 
   const imageSources = {
